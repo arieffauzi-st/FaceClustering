@@ -12,10 +12,16 @@
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="images\AdobeStock_238313033_Preview.jpeg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Update="images\Celebrities.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="images\Elon Musk.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="images\studio-portrait-collage-diverse-people.jpg">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="models\dlib_face_recognition_resnet_model_v1.dat">

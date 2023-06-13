@@ -11,7 +11,7 @@ namespace FaceClustering
     class Program
     {
         // file paths
-        private const string inputFilePath = "images/Celebrities.jpg";
+        private const string inputFilePath = "images/AdobeStock_238313033_Preview.jpeg";
 
         /// <summary>
         /// The program entry point.
@@ -71,19 +71,26 @@ namespace FaceClustering
                 Console.WriteLine($"   Found {clusters} unique person(s) in the image");
 
                 // create a color palette for plotting
-                var palette = new RgbPixel[]
+                // Tentukan jumlah warna yang diinginkan
+                int numColors = 50;
+
+                // Buat sebuah array untuk menampung warna acak
+                var palette = new RgbPixel[numColors];
+
+                // Buat objek Random
+                var random = new Random();
+
+                // Isi array dengan warna acak
+                for (int i = 0; i < numColors; i++)
                 {
-                    new RgbPixel(0xe6, 0x19, 0x4b),
-                    new RgbPixel(0xf5, 0x82, 0x31),
-                    new RgbPixel(0xff, 0xe1, 0x19),
-                    new RgbPixel(0xbc, 0xf6, 0x0c),
-                    new RgbPixel(0x3c, 0xb4, 0x4b),
-                    new RgbPixel(0x46, 0xf0, 0xf0),
-                    new RgbPixel(0x43, 0x63, 0xd8),
-                    new RgbPixel(0x91, 0x1e, 0xb4),
-                    new RgbPixel(0xf0, 0x32, 0xe6),
-                    new RgbPixel(0x80, 0x80, 0x80)
-                };
+                    // Generate komponen warna secara acak antara 0 dan 255
+                    byte r = (byte)random.Next(256);
+                    byte g = (byte)random.Next(256);
+                    byte b = (byte)random.Next(256);
+
+                    // Tambahkan warna acak ke dalam array
+                    palette[i] = new RgbPixel(r, g, b);
+                }
 
                 // draw rectangles on each face using the cluster color
                 for (var i = 0; i < faces.Count; i++)
